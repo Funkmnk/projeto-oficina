@@ -3,7 +3,7 @@
 
 // Se já estiver logado, redirecionar para dashboard
 if (isLoggedIn()) {
-    redirect('?page=dashboard');
+    redirect('index.php?page=dashboard');
 }
 
 $erro = '';

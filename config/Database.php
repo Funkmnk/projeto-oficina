@@ -65,7 +65,7 @@ function isLoggedIn() {
 // Função para exigir login
 function requireLogin() {
     if (!isLoggedIn()) {
-        redirect('login.php');
+        redirect('index.php?page=login');
     }
 }
 ?>
