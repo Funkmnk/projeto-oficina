@@ -3,7 +3,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; <?= date('Y') ?> <?= APP_NAME ?>. Todos os direitos reservados.</p>
+            <p>&copy; <?= date('Y') ?> <?= APP_NAME ?>.</p>
         </div>
     </footer>
 </body>

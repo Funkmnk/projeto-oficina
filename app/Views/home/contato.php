@@ -136,13 +136,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <p>Siga-nos nas redes sociais para ficar por dentro das novidades!</p>
                 
                 <div style="margin-top: 1rem;">
-                    <a href="#" class="btn btn-primary" style="margin: 0.25rem;">
+                    <a href="https://www.facebook.com/universidadepositivo/?locale=pt_BR" class="btn btn-primary" style="margin: 0.25rem;">
                         📘 Facebook
                     </a>
-                    <a href="#" class="btn btn-success" style="margin: 0.25rem;">
+                    <a href="https://www.whatsapp.com/" class="btn btn-success" style="margin: 0.25rem;">
                         📱 WhatsApp
                     </a>
-                    <a href="#" class="btn btn-warning" style="margin: 0.25rem;">
+                    <a href="https://www.instagram.com/universidadepositivo/" class="btn btn-warning" style="margin: 0.25rem;">
                         📷 Instagram
                     </a>
                 </div>
@@ -168,11 +168,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div style="background: #f8f9fa; padding: 2rem; border-radius: 8px; text-align: center;">
                     <h4>📍 Localização</h4>
                     <p>Centro de Curitiba</p>
-                    <p style="color: #6c757d;">
-                        [Aqui poderia ter um mapa do Google Maps<br>
-                        ou outra solução de mapas]
-                    </p>
-                    <a href="https://maps.google.com" target="_blank" class="btn btn-primary">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.140057365398!2d-49.27829022456741!3d-25.4335806775595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce472e85bb7eb%3A0x78328b9f96a47e4d!2sUP%20-%20Universidade%20Positivo%20-%20Campus%20Pra%C3%A7a%20Os%C3%B3rio!5e0!3m2!1spt-BR!2sbr!4v1749055946580!5m2!1spt-BR!2sbr" width="450" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <a href="https://maps.app.goo.gl/6ohRRsyDNxd3KcQ29" target="_blank" class="btn btn-primary">
                         Ver no Google Maps
                     </a>
                 </div>
