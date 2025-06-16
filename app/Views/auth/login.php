@@ -1,14 +1,10 @@
 <?php
-// app/Views/auth/login.php
-
-// Se já estiver logado, redirecionar para dashboard
 if (isLoggedIn()) {
     redirect('index.php?page=dashboard');
 }
 
 $erro = '';
 
-// Processar login
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = $_POST['usuario'] ?? '';
     $senha = $_POST['senha'] ?? '';
@@ -82,7 +78,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </div>
 
-<!-- Dados de teste para facilitar -->
 <div class="card" style="max-width: 400px; margin: 1rem auto;">
     <div class="card-header">
         <h4>Dados de Teste</h4>

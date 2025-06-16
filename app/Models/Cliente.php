@@ -1,5 +1,4 @@
 <?php
-// app/Models/Cliente.php
 
 class Cliente {
     private $db;
@@ -25,7 +24,6 @@ class Cliente {
         }
     }
     
-    // Listar todos os clientes
     public function getAll() {
         try {
             $sql = "SELECT *, 
@@ -39,7 +37,6 @@ class Cliente {
         }
     }
     
-    // Buscar cliente por ID
     public function getById($id) {
         try {
             $sql = "SELECT * FROM clientes WHERE id = ?";
@@ -51,7 +48,6 @@ class Cliente {
         }
     }
     
-    // Atualizar cliente
     public function update($id, $dados) {
         try {
             $sql = "UPDATE clientes SET nome = ?, telefone = ?, email = ?, endereco = ?, cpf_cnpj = ? WHERE id = ?";
@@ -69,10 +65,8 @@ class Cliente {
         }
     }
     
-    // Deletar cliente
     public function delete($id) {
         try {
-            // Verificar se há veículos associados
             $stmt = $this->db->prepare("SELECT COUNT(*) as total FROM veiculos WHERE cliente_id = ?");
             $stmt->execute([$id]);
             $result = $stmt->fetch();
@@ -91,7 +85,6 @@ class Cliente {
         }
     }
     
-    // Buscar clientes por termo
     public function search($termo) {
         try {
             $sql = "SELECT *, 
@@ -108,7 +101,6 @@ class Cliente {
         }
     }
     
-    // Validar dados do cliente
     public function validate($dados) {
         $erros = [];
         
@@ -127,7 +119,6 @@ class Cliente {
         return $erros;
     }
     
-    // Verificar se CPF/CNPJ já existe (para outro cliente)
     public function cpfCnpjExists($cpf_cnpj, $id_cliente = null) {
         if (empty($cpf_cnpj)) return false;
         

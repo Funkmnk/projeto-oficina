@@ -1,10 +1,8 @@
 <?php
-// app/Views/home/contato.php
 
 $mensagem_enviada = false;
 $erro = '';
 
-// Processar envio do formulário
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'] ?? '';
     $email = $_POST['email'] ?? '';
@@ -12,7 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mensagem = $_POST['mensagem'] ?? '';
     $csrf_token = $_POST['csrf_token'] ?? '';
     
-    // Validações básicas
     if (empty($nome) || empty($email) || empty($mensagem)) {
         $erro = 'Por favor, preencha todos os campos obrigatórios.';
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -20,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif (!verifyCSRFToken($csrf_token)) {
         $erro = 'Token de segurança inválido. Tente novamente.';
     } else {
-        // Salvar no banco de dados
         try {
             $db = getDB();
             $stmt = $db->prepare("INSERT INTO mensagens_contato (nome, email, telefone, mensagem) VALUES (?, ?, ?, ?)");

@@ -1,5 +1,4 @@
 <?php
-// app/Controllers/ServicoController.php
 
 require_once '../app/Models/Servico.php';
 
@@ -10,7 +9,6 @@ $id = $_GET['id'] ?? null;
 $mensagem = '';
 $erro = '';
 
-// Processar ações
 switch($action) {
     case 'create':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -77,12 +75,11 @@ switch($action) {
                 if (empty($erros_validacao)) {
                     if ($servicoModel->update($id, $dados)) {
                         $mensagem = 'Serviço atualizado com sucesso!';
-                        $servico = $servicoModel->getById($id); // Recarregar dados
+                        $servico = $servicoModel->getById($id);
                     } else {
                         $erro = 'Erro ao atualizar serviço.';
                     }
                 } else {
-                    // Manter dados do formulário em caso de erro
                     $servico = array_merge($servico, $dados);
                 }
             }
@@ -130,8 +127,7 @@ switch($action) {
         include '../app/Views/servicos/view.php';
         break;
         
-    default: // 'index'
-        // Busca
+    default:
         $termo_busca = $_GET['busca'] ?? '';
         if (!empty($termo_busca)) {
             $servicos = $servicoModel->search($termo_busca);
@@ -139,12 +135,10 @@ switch($action) {
             $servicos = $servicoModel->getAll();
         }
         
-        // Estatísticas para dashboard
         $stats_precos = $servicoModel->getEstatisticasPrecos();
         $stats_faixa_preco = $servicoModel->getServicosPorFaixaPreco();
         $stats_tempo = $servicoModel->getServicosPorTempo();
         
-        // Mensagens de retorno
         if (isset($_GET['msg'])) {
             switch($_GET['msg']) {
                 case 'deleted':

@@ -1,7 +1,5 @@
 <?php
-// app/Views/clientes/delete.php
 
-// Verificar se há veículos associados
 try {
     $db = getDB();
     $stmt = $db->prepare("SELECT COUNT(*) as total FROM veiculos WHERE cliente_id = ?");

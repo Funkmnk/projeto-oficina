@@ -1,5 +1,4 @@
 <?php
-// app/Views/home/index.php
 ?>
 
 <section class="hero">

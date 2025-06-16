@@ -1,4 +1,4 @@
-</div> <!-- Fecha container do header -->
+</div>
     </main>
 
     <footer class="footer">

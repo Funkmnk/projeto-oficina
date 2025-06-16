@@ -1,5 +1,4 @@
 <?php
-// app/Models/Veiculo.php
 
 class Veiculo {
     private $db;
@@ -8,7 +7,6 @@ class Veiculo {
         $this->db = getDB();
     }
     
-    // Criar novo veículo
     public function create($dados) {
         try {
             $sql = "INSERT INTO veiculos (placa, marca, modelo, ano, cor, cliente_id) VALUES (?, ?, ?, ?, ?, ?)";
@@ -26,7 +24,6 @@ class Veiculo {
         }
     }
     
-    // Listar todos os veículos com dados do cliente
     public function getAll() {
         try {
             $sql = "SELECT v.*, c.nome as cliente_nome, c.telefone as cliente_telefone 
@@ -41,7 +38,6 @@ class Veiculo {
         }
     }
     
-    // Buscar veículo por ID
     public function getById($id) {
         try {
             $sql = "SELECT v.*, c.nome as cliente_nome, c.telefone as cliente_telefone, c.email as cliente_email 
@@ -56,7 +52,6 @@ class Veiculo {
         }
     }
     
-    // Listar veículos por cliente
     public function getByClienteId($cliente_id) {
         try {
             $sql = "SELECT * FROM veiculos WHERE cliente_id = ? ORDER BY modelo";
@@ -68,7 +63,6 @@ class Veiculo {
         }
     }
     
-    // Atualizar veículo
     public function update($id, $dados) {
         try {
             $sql = "UPDATE veiculos SET placa = ?, marca = ?, modelo = ?, ano = ?, cor = ?, cliente_id = ? WHERE id = ?";
@@ -87,7 +81,6 @@ class Veiculo {
         }
     }
     
-    // Deletar veículo
     public function delete($id) {
         try {
             $sql = "DELETE FROM veiculos WHERE id = ?";
@@ -98,7 +91,6 @@ class Veiculo {
         }
     }
     
-    // Buscar veículos por termo
     public function search($termo) {
         try {
             $sql = "SELECT v.*, c.nome as cliente_nome, c.telefone as cliente_telefone 
@@ -115,7 +107,6 @@ class Veiculo {
         }
     }
     
-    // Validar dados do veículo
     public function validate($dados) {
         $erros = [];
         
@@ -150,12 +141,10 @@ class Veiculo {
         return $erros;
     }
     
-    // Verificar se placa já existe (para outro veículo)
     public function placaExists($placa, $id_veiculo = null) {
         if (empty($placa)) return false;
         
         try {
-            // Normalizar placa (remover hífen e converter para maiúsculo)
             $placa_normalizada = strtoupper(str_replace('-', '', $placa));
             
             $sql = "SELECT id FROM veiculos WHERE UPPER(REPLACE(placa, '-', '')) = ?";
@@ -174,7 +163,6 @@ class Veiculo {
         }
     }
     
-    // Verificar se cliente existe
     public function clienteExists($cliente_id) {
         try {
             $sql = "SELECT id FROM clientes WHERE id = ?";
@@ -186,7 +174,6 @@ class Veiculo {
         }
     }
     
-    // Listar todos os clientes para dropdown
     public function getAllClientes() {
         try {
             $sql = "SELECT id, nome, telefone FROM clientes ORDER BY nome";
@@ -198,7 +185,6 @@ class Veiculo {
         }
     }
     
-    // Obter estatísticas de veículos por marca
     public function getEstatisticasPorMarca() {
         try {
             $sql = "SELECT marca, COUNT(*) as total FROM veiculos GROUP BY marca ORDER BY total DESC, marca";
@@ -210,7 +196,6 @@ class Veiculo {
         }
     }
     
-    // Obter estatísticas de veículos por ano
     public function getEstatisticasPorAno() {
         try {
             $sql = "SELECT ano, COUNT(*) as total FROM veiculos GROUP BY ano ORDER BY ano DESC";

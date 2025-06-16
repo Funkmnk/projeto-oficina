@@ -1,5 +1,4 @@
 <?php
-// app/Models/Servico.php
 
 class Servico {
     private $db;
@@ -8,7 +7,6 @@ class Servico {
         $this->db = getDB();
     }
     
-    // Criar novo serviço
     public function create($dados) {
         try {
             $sql = "INSERT INTO servicos (nome, descricao, preco, tempo_estimado) VALUES (?, ?, ?, ?)";
@@ -24,7 +22,6 @@ class Servico {
         }
     }
     
-    // Listar todos os serviços
     public function getAll() {
         try {
             $sql = "SELECT * FROM servicos ORDER BY nome";
@@ -36,7 +33,6 @@ class Servico {
         }
     }
     
-    // Buscar serviço por ID
     public function getById($id) {
         try {
             $sql = "SELECT * FROM servicos WHERE id = ?";
@@ -48,7 +44,6 @@ class Servico {
         }
     }
     
-    // Atualizar serviço
     public function update($id, $dados) {
         try {
             $sql = "UPDATE servicos SET nome = ?, descricao = ?, preco = ?, tempo_estimado = ? WHERE id = ?";
@@ -65,7 +60,6 @@ class Servico {
         }
     }
     
-    // Deletar serviço
     public function delete($id) {
         try {
             $sql = "DELETE FROM servicos WHERE id = ?";
@@ -76,7 +70,6 @@ class Servico {
         }
     }
     
-    // Buscar serviços por termo
     public function search($termo) {
         try {
             $sql = "SELECT * FROM servicos 
@@ -91,7 +84,6 @@ class Servico {
         }
     }
     
-    // Validar dados do serviço
     public function validate($dados) {
         $erros = [];
         
@@ -114,7 +106,6 @@ class Servico {
         return $erros;
     }
     
-    // Verificar se nome já existe (para outro serviço)
     public function nomeExists($nome, $id_servico = null) {
         if (empty($nome)) return false;
         
@@ -135,7 +126,6 @@ class Servico {
         }
     }
     
-    // Obter estatísticas de preços
     public function getEstatisticasPrecos() {
         try {
             $sql = "SELECT 
@@ -152,7 +142,6 @@ class Servico {
         }
     }
     
-    // Obter serviços por faixa de preço
     public function getServicosPorFaixaPreco() {
         try {
             $sql = "SELECT 
@@ -180,7 +169,6 @@ class Servico {
         }
     }
     
-    // Obter serviços por tempo estimado
     public function getServicosPorTempo() {
         try {
             $sql = "SELECT 
@@ -208,11 +196,10 @@ class Servico {
         }
     }
     
-    // Formatar tempo em formato legível
     public function formatarTempo($minutos) {
         if ($minutos < 60) {
             return $minutos . ' min';
-        } elseif ($minutos < 1440) { // menos de 24 horas
+        } elseif ($minutos < 1440) {
             $horas = floor($minutos / 60);
             $mins = $minutos % 60;
             if ($mins == 0) {

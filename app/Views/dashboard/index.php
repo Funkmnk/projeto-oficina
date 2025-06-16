@@ -1,7 +1,5 @@
 <?php
-// app/Views/dashboard/index.php
 
-// Buscar estatísticas do sistema
 try {
     $db = getDB();
     
@@ -49,7 +47,6 @@ try {
     </div>
 <?php endif; ?>
 
-<!-- Estatísticas -->
 <div class="dashboard-stats">
     <div class="stat-card">
         <div class="stat-number"><?= $total_clientes ?? 0 ?></div>
@@ -85,7 +82,6 @@ try {
 </div>
 
 <div class="row">
-    <!-- Últimos Clientes -->
     <div class="col-md-6">
         <div class="card">
             <div class="card-header">
@@ -122,7 +118,6 @@ try {
         </div>
     </div>
     
-    <!-- Últimas Mensagens -->
     <div class="col-md-6">
         <div class="card">
             <div class="card-header">
@@ -152,7 +147,6 @@ try {
     </div>
 </div>
 
-<!-- Ações Rápidas -->
 <div class="card">
     <div class="card-header">
         <h3>Ações Rápidas</h3>

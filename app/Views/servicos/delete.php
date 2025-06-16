@@ -1,5 +1,5 @@
 <?php
-// app/Views/servicos/delete.php
+
 ?>
 
 <div class="card">

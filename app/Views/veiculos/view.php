@@ -1,5 +1,5 @@
 <?php
-// app/Views/veiculos/view.php
+
 ?>
 
 <div class="card">
@@ -94,7 +94,6 @@
     </div>
     
     <div class="col-md-4">
-        <!-- Ações Rápidas -->
         <div class="card">
             <div class="card-header">
                 <h3>Ações Rápidas</h3>
@@ -129,7 +128,6 @@
             </div>
         </div>
         
-        <!-- Informações Técnicas -->
         <div class="card">
             <div class="card-header">
                 <h3>Informações Técnicas</h3>
@@ -158,7 +156,6 @@
             </div>
         </div>
         
-        <!-- Veículo do Mesmo Cliente -->
         <?php
         try {
             $db = getDB();

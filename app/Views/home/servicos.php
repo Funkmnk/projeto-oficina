@@ -1,7 +1,5 @@
 <?php
-// app/Views/home/servicos.php
 
-// Buscar serviços do banco de dados
 try {
     $db = getDB();
     $stmt = $db->prepare("SELECT * FROM servicos ORDER BY nome");

@@ -1,31 +1,23 @@
 <?php
-// public/index.php
 session_start();
 require_once '../config/Database.php';
 
-// Roteamento simples
 $page = $_GET['page'] ?? 'home';
 
-// Páginas públicas (sem necessidade de login)
 $publicPages = ['home', 'servicos', 'contato'];
 
-// Páginas que requerem login
 $privatePages = ['dashboard', 'clientes', 'veiculos', 'admin-servicos', 'logout'];
 
-// Verificar se a página existe
 if (!in_array($page, array_merge($publicPages, $privatePages, ['login']))) {
     $page = 'home';
 }
 
-// Verificar login para páginas privadas
 if (in_array($page, $privatePages)) {
     requireLogin();
 }
 
-// Incluir o cabeçalho
 include '../app/Views/layouts/header.php';
 
-// Carregar a página solicitada
 switch($page) {
     case 'home':
         include '../app/Views/home/index.php';
@@ -58,6 +50,5 @@ switch($page) {
         include '../app/Views/home/index.php';
 }
 
-// Incluir o rodapé
 include '../app/Views/layouts/footer.php';
 ?>

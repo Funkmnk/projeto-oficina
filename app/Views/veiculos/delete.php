@@ -1,5 +1,5 @@
 <?php
-// app/Views/veiculos/delete.php
+
 ?>
 
 <div class="card">
