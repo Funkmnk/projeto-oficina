@@ -1,5 +1,5 @@
 <?php
-// app/Views/clientes/index.php
+
 ?>
 
 <div class="card">

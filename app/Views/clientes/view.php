@@ -1,5 +1,5 @@
 <?php
-// app/Views/clientes/view.php
+
 ?>
 
 <div class="card">
@@ -59,7 +59,6 @@
             </div>
         </div>
         
-        <!-- Veículos do Cliente -->
         <div class="card">
             <div class="card-header">
                 <h3>🚗 Veículos do Cliente (<?= count($veiculos) ?>)</h3>
@@ -104,7 +103,6 @@
     </div>
     
     <div class="col-md-4">
-        <!-- Ações Rápidas -->
         <div class="card">
             <div class="card-header">
                 <h3>Ações Rápidas</h3>
@@ -139,7 +137,6 @@
             </div>
         </div>
         
-        <!-- Estatísticas -->
         <div class="card">
             <div class="card-header">
                 <h3>Estatísticas</h3>
@@ -159,7 +156,6 @@
             </div>
         </div>
         
-        <!-- Informações Adicionais -->
         <div class="card">
             <div class="card-header">
                 <h3>Informações</h3>

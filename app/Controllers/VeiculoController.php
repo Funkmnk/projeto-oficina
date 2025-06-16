@@ -1,5 +1,4 @@
 <?php
-// app/Controllers/VeiculoController.php
 
 require_once '../app/Models/Veiculo.php';
 
@@ -11,7 +10,6 @@ $cliente_id = $_GET['cliente_id'] ?? null;
 $mensagem = '';
 $erro = '';
 
-// Processar ações
 switch($action) {
     case 'create':
         $clientes = $veiculoModel->getAllClientes();
@@ -44,8 +42,7 @@ switch($action) {
                 if (empty($erros_validacao)) {
                     if ($veiculoModel->create($dados)) {
                         $mensagem = 'Veículo cadastrado com sucesso!';
-                        $dados = []; // Limpar formulário
-                        // Manter cliente selecionado se veio por parâmetro
+                        $dados = [];
                         if ($cliente_id) {
                             $dados['cliente_id'] = $cliente_id;
                         }
@@ -55,7 +52,6 @@ switch($action) {
                 }
             }
         } else {
-            // Pré-selecionar cliente se veio por parâmetro
             if ($cliente_id) {
                 $dados['cliente_id'] = $cliente_id;
             }
@@ -103,12 +99,11 @@ switch($action) {
                 if (empty($erros_validacao)) {
                     if ($veiculoModel->update($id, $dados)) {
                         $mensagem = 'Veículo atualizado com sucesso!';
-                        $veiculo = $veiculoModel->getById($id); // Recarregar dados
+                        $veiculo = $veiculoModel->getById($id);
                     } else {
                         $erro = 'Erro ao atualizar veículo.';
                     }
                 } else {
-                    // Manter dados do formulário em caso de erro
                     $veiculo = array_merge($veiculo, $dados);
                 }
             }
@@ -155,8 +150,7 @@ switch($action) {
         include '../app/Views/veiculos/view.php';
         break;
         
-    default: // 'index'
-        // Busca
+    default:
         $termo_busca = $_GET['busca'] ?? '';
         if (!empty($termo_busca)) {
             $veiculos = $veiculoModel->search($termo_busca);
@@ -164,11 +158,9 @@ switch($action) {
             $veiculos = $veiculoModel->getAll();
         }
         
-        // Estatísticas para dashboard
         $stats_marcas = $veiculoModel->getEstatisticasPorMarca();
         $stats_anos = $veiculoModel->getEstatisticasPorAno();
         
-        // Mensagens de retorno
         if (isset($_GET['msg'])) {
             switch($_GET['msg']) {
                 case 'deleted':

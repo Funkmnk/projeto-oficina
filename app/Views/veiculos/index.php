@@ -1,5 +1,5 @@
 <?php
-// app/Views/veiculos/index.php
+
 ?>
 
 <div class="card">

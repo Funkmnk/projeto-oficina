@@ -1,5 +1,4 @@
 <?php
-// app/Controllers/ClienteController.php
 
 require_once '../app/Models/Cliente.php';
 
@@ -10,7 +9,6 @@ $id = $_GET['id'] ?? null;
 $mensagem = '';
 $erro = '';
 
-// Processar ações
 switch($action) {
     case 'create':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -129,7 +127,6 @@ switch($action) {
             redirect('?page=clientes');
         }
         
-        // Buscar veículos do cliente
         try {
             $db = getDB();
             $stmt = $db->prepare("SELECT * FROM veiculos WHERE cliente_id = ? ORDER BY modelo");
@@ -142,8 +139,7 @@ switch($action) {
         include '../app/Views/clientes/view.php';
         break;
         
-    default: // 'index'
-        // Busca
+    default:
         $termo_busca = $_GET['busca'] ?? '';
         if (!empty($termo_busca)) {
             $clientes = $clienteModel->search($termo_busca);
@@ -151,7 +147,6 @@ switch($action) {
             $clientes = $clienteModel->getAll();
         }
         
-        // Mensagens de retorno
         if (isset($_GET['msg'])) {
             switch($_GET['msg']) {
                 case 'deleted':

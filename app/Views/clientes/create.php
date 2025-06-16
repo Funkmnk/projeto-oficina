@@ -1,5 +1,4 @@
 <?php
-// app/Views/clientes/create.php
 ?>
 
 <div class="card">
